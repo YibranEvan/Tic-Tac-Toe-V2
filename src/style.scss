@@ -1,0 +1,209 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  border: solid black 10px;
+  border-radius: 20px;
+  margin-top: 150px;
+
+
+
+  .backSelect {
+    padding-left: 50px;
+    margin-top: 130px;
+  }
+
+  .title{
+    padding-top: 100px;
+    text-align: center;
+  }
+
+  #game-choice {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    gap: 25%;
+    padding-top: 200px;
+  }
+}
+
+#container2 {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  border: solid black 10px;
+  border-radius: 20px;
+  margin-top: 60px;
+}
+
+#board {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+  padding-top: 30px;
+  grid-template-columns: repeat(3, auto);
+}
+:root {
+  --cell-size: 180px;
+  --mark-size: calc(var(--cell-size)* .9)
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  cursor: pointer;
+  &:nth-child(1), 
+  &:nth-child(2),  
+  &:nth-child(3)  {
+    border-top:none;
+  }
+  &:nth-child(3n+1) {
+    border-left: none;
+  }
+  &:nth-child(3n +3) {
+    border-right: none;
+  }
+  &:nth-child(7),
+  &:nth-child(8),
+  &:nth-child(9) {
+    border-bottom: none;
+  }
+}
+
+.cell.x,
+.cell.circle {
+  border: none;
+}
+
+.cell.x::before,
+.cell.x::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size) * .15);
+  height: var(--mark-size);
+  background-color: blue;
+}
+
+.cell.x::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after {
+  transform: rotate(-45deg);
+
+  
+}
+
+.cell.circle::before,
+.cell.circle::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.cell.circle::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+  background-color: red;
+}
+
+.cell.circle::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+  
+}
+
+#scoreboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  gap: 50px;
+
+
+  .playerOneWins,
+  .playerTwoWins,
+  .gameTies {
+    border: solid black 5px;
+    border-radius: 20px;
+    padding:50px;
+  }
+  .scoreNumber,
+  .draws,
+  .scoreNumber2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+#statusOptionsBar {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  margin-top: 20px;
+}
+
+.end-game-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.btn {
+  background: rgb(27, 255, 255);
+  color: rgb(63, 118, 170);
+  border: 2px solid rgb(63, 118, 170);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease-out;
+  max-height: 7rem;
+}
+
+.btn:hover {
+  background: rgb(63, 118, 170);
+  color: rgb(27, 255, 255);
+  border: 2px solid rgb(27, 255, 255);
+}
+
+.win-text {
+  color: white;
+  font-size: 5rem;
+}
+
+.win-history {
+  color: white;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
