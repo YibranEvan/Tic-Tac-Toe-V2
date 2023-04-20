@@ -12,6 +12,7 @@ const [playerTwoScore, setPlayerTwoScore] = useState(0);
 const [gameFinished, setGameFinished] = useState(false);
 const [playerTurn, setPlayerTurn] = useState(true);
 const [gameDraw, setGameDraw] = useState(false);
+const [winner, setWinner] = useState(null);
 
 
 const winCombination = [
@@ -82,6 +83,7 @@ const nextValue = calculateNextValue(squares)
         setPlayerOneScore(playerOneScore + 1);
         setPlayerTurn(true);
         setGameFinished(true);
+        setWinner(true);
         console.log("Player One WinsX");
         return;
       }
@@ -96,6 +98,7 @@ const nextValue = calculateNextValue(squares)
         setPlayerTwoScore(playerTwoScore + 1);
         setPlayerTurn(false);
         setGameFinished(true);
+        setWinner(false);
         console.log("Player Two WinsX");
         return;
       }
@@ -112,6 +115,7 @@ const nextValue = calculateNextValue(squares)
         setPlayerOneScore(playerOneScore + 1);
         setPlayerTurn(true);
         setGameFinished(true);
+        setWinner(true);
         console.log("Player One WinsO");
         return;
       }
@@ -126,6 +130,7 @@ const nextValue = calculateNextValue(squares)
         setPlayerTwoScore(playerTwoScore + 1);
         setGameFinished(true);
         setPlayerTurn(false);
+        setWinner(false);
         console.log("Player Two WinsO");
         return;
       }
@@ -174,7 +179,7 @@ const nextValue = calculateNextValue(squares)
       {gameFinished && (
         <GameStatus
         restart={restart}
-        playerTurn={playerTurn}
+        winner={winner}
         gameDraw={gameDraw}
         clearHistory={clearHistory}
         />
